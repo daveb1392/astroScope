@@ -40,7 +40,7 @@ render(){
             </Form.Field>
             <Form.Field>
             <label>Password</label>
-            <input value={this.state.password} onChange={this.handleChangePassword} placeholder='Password' />
+            <input type='password' value={this.state.password} onChange={this.handleChangePassword} placeholder='Password' />
             </Form.Field>
             <Button type='submit'>Login</Button>
         </Form>

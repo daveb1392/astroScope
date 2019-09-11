@@ -28,7 +28,7 @@ class App extends React.Component {
     // debugger
     API.logIn(user)
     .then(user => this.setState({user}))
-    debugger
+    // debugger
   }
 
   logOut = () => {

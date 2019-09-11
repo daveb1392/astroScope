@@ -49,7 +49,7 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
             </List.Item>
             </List> */}
 
-            <Route exact path="/signup" component={(props) => <SignupForm {...props} submit={signUp} />} />
+            <Route exact path="/signup" component={(props) => <SignupForm {...props} handleSubmit={signUp} />} />
             <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} />
 
             <br />

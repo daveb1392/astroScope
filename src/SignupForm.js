@@ -1,28 +1,55 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react'
 
-const SignupForm = ({submit}) => {
+class SignupForm extends React.Component {
+
+    state = {
+        username: "",
+        email: "",
+        dob: 0, 
+        password: ""
+    }
+
+    handleChangeUsername = (event) => {
+        this.setState({username: event.target.value})
+    }
+
+    handleChangeEmail = (event) => {
+        this.setState({email: event.target.value})
+    }
+
+    handleChangeDob = (event) => {
+        this.setState({dob: event.target.value})
+    }
+
+    handleChangePassword = (event) => {
+        this.setState({password: event.target.value})
+    }
+
+
+    render() {
     return (
-        <Form onSubmit={() => submit()}>
+        <Form onSubmit={() => this.props.handleSubmit(this.state)}>
             <Form.Field>
             <label>Username</label>
-            <input placeholder='Username' />
-            </Form.Field>
+            <input value={this.state.username} onChange={this.handleChangeUsername} placeholder='Username' />
+            </Form.Field> 
             <Form.Field>
             <label>Email</label>
-            <input type="email" placeholder='Email' />
+            <input value={this.state.email} onChange={this.handleChangeEmail} type="email" placeholder='Email' />
             </Form.Field>
             <Form.Field>
             <label>Date of Birth</label>
-            <input type="date" placeholder='Date of Birth' />
+            <input value={this.state.dob} onChange={this.handleChangeDob} type="date" placeholder='Date of Birth' />
             </Form.Field>
             <Form.Field>
             <label>Password</label>
-            <input type='password' placeholder='Password' />
+            <input value={this.state.password} onChange={this.handleChangePassword}type='password' placeholder='Password' />
             </Form.Field>
             <Button type='submit'>Sign up</Button>
         </Form>
     );
+    }
 };
 
 export default SignupForm;
