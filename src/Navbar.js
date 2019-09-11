@@ -7,13 +7,13 @@ import { List } from 'semantic-ui-react'
 import { Route, NavLink } from "react-router-dom";
  
 
-class Navbar extends Component {
-    render() {
+const Navbar = ({user, signUp, logIn, logOut}) => {
+    
         return (
           <nav>
-            { this.props.user ? (
+            { user ? (
               <div>
-                <button onClick={this.props.logOut}>Log out</button>
+                <button onClick={logOut}>Log out</button>
               </div>
             ) : (
               <>
@@ -49,14 +49,14 @@ class Navbar extends Component {
             </List.Item>
             </List> */}
 
-            <Route exact path="/signup" component={SignupForm} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={(props) => <SignupForm {...props} submit={signUp} />} />
+            <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} />
 
             <br />
             <IndexPage />
           </nav>
         );
-    }
+
 }
 
 export default Navbar

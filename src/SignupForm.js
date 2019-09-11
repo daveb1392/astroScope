@@ -1,24 +1,24 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react'
 
-const SignupForm = () => {
+const SignupForm = ({submit}) => {
     return (
-        <Form>
+        <Form onSubmit={() => submit()}>
             <Form.Field>
             <label>Username</label>
             <input placeholder='Username' />
             </Form.Field>
             <Form.Field>
             <label>Email</label>
-            <input placeholder='Email' />
+            <input type="email" placeholder='Email' />
             </Form.Field>
             <Form.Field>
             <label>Date of Birth</label>
-            <input tybe="number" placeholder='Date of Birth' />
+            <input type="date" placeholder='Date of Birth' />
             </Form.Field>
             <Form.Field>
             <label>Password</label>
-            <input placeholder='Password' />
+            <input type='password' placeholder='Password' />
             </Form.Field>
             <Button type='submit'>Sign up</Button>
         </Form>
