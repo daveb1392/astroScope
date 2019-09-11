@@ -25,8 +25,10 @@ class App extends React.Component {
   }
 
   logIn = user => {
+    // debugger
     API.logIn(user)
     .then(user => this.setState({user}))
+    // debugger
   }
 
   logOut = () => {
