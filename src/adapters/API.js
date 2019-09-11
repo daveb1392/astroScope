@@ -2,6 +2,7 @@ const endpoint = "http://localhost:3000"
 const signupURL = `${endpoint}/users`
 const loginURL = `${endpoint}/login`
 const validateURL = `${endpoint}/validate`
+const horoscopeURL = `${endpoint}/horoscopes`
 
 const jsonify = res => {
     if (res.ok)
@@ -58,9 +59,16 @@ const validateUser = () => {
 
 const clearToken = () => localStorage.removeItem('token')
 
+const getHoroscope = (user) => {
+    return fetch(horoscopeURL)
+    .then(jsonify)
+    .then(data => data.find(data => data.starsign_id === user.starsign_id))
+}
+
 export default {
     signUp,
     logIn,
     validateUser,
-    clearToken
+    clearToken, 
+    getHoroscope
 }

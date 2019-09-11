@@ -20,8 +20,17 @@ class IndexPage extends Component {
     render() {
         return (
             <div>
-                <ShowDailyHoroscope />
-                <HoroscopesContainer starsigns={this.state.starsigns} />
+                {
+                this.props.user ? 
+                (<>
+                    <ShowDailyHoroscope user={this.props.user} starsigns={this.state.starsigns}/>
+                    <HoroscopesContainer starsigns={this.state.starsigns} />
+                </>)
+                : (<>
+                    <HoroscopesContainer starsigns={this.state.starsigns} />
+                </>)
+        
+                }
             </div>
         );
     }

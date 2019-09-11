@@ -53,7 +53,7 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
             <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} />
 
             <br />
-            <IndexPage />
+            <IndexPage user={user}/>
           </nav>
         );
 

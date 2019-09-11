@@ -36,10 +36,16 @@ class App extends React.Component {
     this.setState({user: undefined})
   }
 
+  // getHoroscope = user => {
+  //   API.getHoroscope(user)
+  //   this.setState
+
+  // }
+
     render() {
       return (
       <div className="App">
-        <Route path="/" component={(props) => <Navbar {...props} user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut}/>} /> 
+        <Route path="/" component={(props) => <Navbar {...props} user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} />} /> 
       </div>
   );
 }
