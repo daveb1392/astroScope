@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react'
 
-const SignupForm = () => {
+const Login = () => {
     return (
         <Form>
             <Form.Field>
@@ -13,20 +13,14 @@ const SignupForm = () => {
             <input placeholder='Email' />
             </Form.Field>
             <Form.Field>
-            <label>Date of Birth</label>
-            <input tybe="number" placeholder='Date of Birth' />
-            </Form.Field>
-            <Form.Field>
             <label>Password</label>
             <input placeholder='Password' />
             </Form.Field>
-            <Button type='submit'>Sign up</Button>
+            <Button type='submit'>Login</Button>
         </Form>
     );
 };
 
-export default SignupForm;
-
-
+export default Login;
 
 // edit form to take in correct format of dob

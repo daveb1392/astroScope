@@ -19,7 +19,7 @@ class StarSign extends Component {
                 this.state.clicked ? 
                 <>
                     <Card.Content>
-                        <Image src={require(`../public/imgs/${this.props.starsign.name}.png`)} size='small' centered bordered rounded/>
+                        <Image src={require(`../public/imgs/${this.props.starsign.name}.png`)} size='small' centered rounded/>
                     </Card.Content>
                     <Card.Content extra>
                         <Card.Header>{this.props.starsign.name}</Card.Header>
