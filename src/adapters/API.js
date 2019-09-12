@@ -67,6 +67,12 @@ const getHoroscope = (user) => {
     .then(data => data.find(data => data.starsign_id === user.starsign_id))
 }
 
+const getStarSignHoroscope = (starsign) => {
+    return fetch(todayhoroscopeURL)
+    .then(jsonify)
+    .then(data => data.find(data => data.starsign_id === starsign.id))
+}
+
 
 
 // const getHoroscope = (user) => {
@@ -80,5 +86,6 @@ export default {
     logIn,
     validateUser,
     clearToken, 
-    getHoroscope
+    getHoroscope,
+    getStarSignHoroscope
 }
