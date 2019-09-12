@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import SignupForm from './SignupForm.js';
-import Login from './Login.js'
-import IndexPage from './IndexPage.js';
-import { List } from 'semantic-ui-react'
+import { List, Button, Header } from 'semantic-ui-react'
 
 import { Route, NavLink } from "react-router-dom";
  
@@ -11,12 +8,39 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
     
         return (
           <nav>
-            { user ? (
+              <Header centered horizontal>
+                <NavLink to="/" exact>
+                <h1>Daily AstroScopes</h1>
+                </NavLink>
+              </Header>
+
+            { user && !user.error ? (
               <div>
-                <button onClick={logOut}>Log out</button>
+
+                <Header floated="left" horizontal as='h4'>{` Logged in as ${user.username}`}</Header>
+                <Button onClick={logOut} floated="right"  >
+                  <Button.Content>Log out</Button.Content>
+                </Button>
+                
               </div>
             ) : (
               <>
+                <Button floated="left" horizontal >
+                  <Button.Content>
+                    <NavLink to="/signup" exact>
+                      Sign up
+                    </NavLink>
+                  </Button.Content>
+                </Button>
+
+                <Button floated="left" horizontal >
+                  <Button.Content>
+                    <NavLink to="/login" exact>
+                      Login
+                    </NavLink>
+                  </Button.Content>
+                </Button>
+{/* 
                 <List floated="left" horizontal>
                   <List.Item>
                     <NavLink to="/signup" exact>
@@ -28,15 +52,17 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
                       Login
                     </NavLink>
                   </List.Item>
-                </List>
+                </List> */}
 
-                <List centered horizontal>
+                {/* <List centered horizontal>
                   <List.Item>
                     <NavLink to="/" exact>
                       <h1>Daily AstroScopes</h1>
                     </NavLink>
                   </List.Item>
-                </List>
+                </List> */}
+              {/* <Route exact path="/signup" component={(props) => <SignupForm {...props} handleSubmit={signUp} />} />
+              <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} /> */}
               </>
             )}
              
@@ -49,11 +75,11 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
             </List.Item>
             </List> */}
 
-            <Route exact path="/signup" component={(props) => <SignupForm {...props} handleSubmit={signUp} />} />
-            <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} />
+            {/* <Route exact path="/signup" component={(props) => <SignupForm {...props} handleSubmit={signUp} />} />
+            <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} /> */}
 
             <br />
-            <IndexPage />
+            {/* <IndexPage user={user}/> */}
           </nav>
         );
 
