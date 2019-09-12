@@ -4,7 +4,7 @@ import { Form, Button } from 'semantic-ui-react'
 class Login extends React.Component {
 
     state = {
-        username: "",
+        // username: "",
         email: "",
         password: ""
     }
@@ -17,9 +17,9 @@ class Login extends React.Component {
     //     })
     // }
 
-    handleChangeUsername = (event) => {
-        this.setState({ username: event.target.value })
-    }
+    // handleChangeUsername = (event) => {
+    //     this.setState({ username: event.target.value })
+    // }
     handleChangeEmail = (event) => {
         this.setState({ email: event.target.value })
     }
@@ -30,10 +30,10 @@ class Login extends React.Component {
 render(){
     return (
         <Form onSubmit={() => this.props.handleSubmit(this.state)}>
-            <Form.Field>
+            {/* <Form.Field>
             <label>Username</label>
             <input value={this.state.username} onChange={this.handleChangeUsername} placeholder='Username' />
-            </Form.Field>
+            </Form.Field> */}
             <Form.Field>
             <label>Email</label>
             <input value={this.state.email} onChange={this.handleChangeEmail} placeholder='Email' />

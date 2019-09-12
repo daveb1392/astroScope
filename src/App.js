@@ -2,14 +2,15 @@ import React from 'react';
 import './App.css';
 import Navbar from './Navbar.js'
 import API from './adapters/API.js'
-
-import { Route } from "react-router-dom";
-
+import IndexPage from './IndexPage.js';
+import SignupForm from './SignupForm.js';
+import Login from './Login.js'
+import { Route, withRouter } from "react-router-dom";
 
 class App extends React.Component {
 
   state = {
-    user: undefined
+    user: null
   }
   
   componentDidMount() {
@@ -22,33 +23,35 @@ class App extends React.Component {
   signUp = user => {
     API.signUp(user)
     .then(user => this.setState({user}))
+    this.props.history.push("/")
   }
 
   logIn = user => {
-    // debugger
     API.logIn(user)
     .then(user => this.setState({user}))
-    // debugger
+    this.props.history.push("/")
   }
 
   logOut = () => {
     API.clearToken()
-    this.setState({user: undefined})
+    this.setState({user: null})
+    this.props.history.push("/")
   }
 
-  // getHoroscope = user => {
-  //   API.getHoroscope(user)
-  //   this.setState
-
-  // }
 
     render() {
       return (
       <div className="App">
-        <Route path="/" component={(props) => <Navbar {...props} user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} />} /> 
+        
+        <Navbar user={this.state.user} logOut={this.logOut} />
+
+        <Route exact path='/' component={() => <IndexPage user={this.state.user} />} />
+      <Route path="/login" component={(props) => <Login {...props} handleSubmit={this.logIn} />}/>
+        <Route path="/signup" component={(props) => <SignupForm {...props} handleSubmit={this.signUp} />}/>
+        
       </div>
   );
 }
 }
 
-export default App;
+export default withRouter(App);

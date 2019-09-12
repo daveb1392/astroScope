@@ -5,43 +5,38 @@ import API from './adapters/API.js'
 class ShowDailyHoroscope extends React.Component {
 
     state = {
-        todaysHoroscope: {},
-        // starsignName: ""
+        todaysHoroscope: null
+        // usersStarsign: {}
     }
 
     // componentDidMount() {
-    //     const starsignName = this.props.starsigns.find(starsign => starsign.id === this.props.user.starsign_id).name
-    //     this.setState({starsignName})
+    //     debugger
+    //     const usersStarsign = this.props.starsigns.find(starsign => starsign.id === this.props.user.starsign_id)
+    //     this.setState({usersStarsign})
     // }
 
     handleGetHoroscope = (user) => {
         API.getHoroscope(user)
         .then(todaysHoroscope => this.setState({todaysHoroscope}))
     }
-    // require(`../public/imgs/${this.state.starsignName}.png`
+    // require(`../public/imgs/${this.state.starsignName}.png`)
     render(){
         // debugger
     return (
         <div>
-        <Button onClick={() => this.handleGetHoroscope(this.props.user)} animated='fade'>
-            <Button.Content visible>Today's horoscope</Button.Content>
-            <Button.Content hidden>Find out here</Button.Content>
-        </Button>
         <>
         {
-            this.state.todaysHoroscope ?
+            !!this.state.todaysHoroscope ?
             (
                 <>
-                <br/>
-                
-                <Card centered>
+                <Card color='violet' centered>
                     <Card.Content>
                     <Image
                         floated='right'
                         size='mini'
-                        src={null}
+                        src={!this.props.usersStarSign ? null : require(`../public/imgs/${this.props.usersStarSign.name}.png`)}
                     />
-                    <Card.Header>Today's Horoscope</Card.Header>
+                    <Card.Header>{!this.props.usersStarSign ? null : this.props.usersStarSign.name}</Card.Header>
                     <Card.Meta>{this.state.todaysHoroscope.date}</Card.Meta>
                     <Card.Description>
                         {this.state.todaysHoroscope.content} 
@@ -52,7 +47,14 @@ class ShowDailyHoroscope extends React.Component {
                 <br/>
                 </>
             ) : (
+                <>
+                <Button onClick={() => this.handleGetHoroscope(this.props.user)} animated='fade'>
+                    <Button.Content visible>Today's horoscope</Button.Content>
+                    <Button.Content hidden>Find out here</Button.Content>
+                </Button>
                 <br/>
+                <br/>
+                </>
             )
 
         }

@@ -2,7 +2,8 @@ const endpoint = "http://localhost:3000"
 const signupURL = `${endpoint}/users`
 const loginURL = `${endpoint}/login`
 const validateURL = `${endpoint}/validate`
-const horoscopeURL = `${endpoint}/horoscopes`
+const horoscopeURL = `${endpoint}/horoscopes` 
+
 
 const jsonify = res => {
     if (res.ok)
