@@ -32,9 +32,9 @@ class App extends React.Component {
   }
 
   findStarsignOfCurrentUser = (starsigns) => {
-    if (!this.props.user) return
+    if (!this.state.user) return
    // debugger
-   const usersStarSign = starsigns.find(starsign => starsign.id === this.props.user.starsign_id)
+   const usersStarSign = starsigns.find(starsign => starsign.id === this.state.user.starsign_id)
    this.setState({usersStarSign: usersStarSign})
 }
 

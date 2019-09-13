@@ -51,7 +51,7 @@ class StarSign extends Component {
             ) : (
               <>
                 <Card.Content>
-                  <Card.Header>{`Today's horoscope for ${this.props.starsign.name}...`}</Card.Header>
+                  <Card.Header>{`Today's horoscope for ${this.props.starsign.name}`}</Card.Header>
                   <Card.Description>
                     {this.state.todaysStarSignHoroscope ? this.state.todaysStarSignHoroscope.content : null}
                   </Card.Description>
