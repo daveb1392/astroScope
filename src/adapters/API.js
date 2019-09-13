@@ -4,6 +4,7 @@ const loginURL = `${endpoint}/login`
 const validateURL = `${endpoint}/validate`
 const horoscopeURL = `${endpoint}/horoscopes` 
 const todayhoroscopeURL = `${endpoint}/today`
+const starsignURL = `${endpoint}/starsigns`
 
 
 const jsonify = res => {
@@ -72,7 +73,6 @@ const getStarSignHoroscope = (starsign) => {
     .then(jsonify)
     .then(data => data.find(data => data.starsign_id === starsign.id))
 }
-
 
 
 // const getHoroscope = (user) => {

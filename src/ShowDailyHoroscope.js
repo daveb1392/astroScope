@@ -6,20 +6,14 @@ class ShowDailyHoroscope extends React.Component {
 
     state = {
         todaysHoroscope: null
-        // usersStarsign: {}
+
     }
-
-    // componentDidMount() {
-    //     debugger
-    //     const usersStarsign = this.props.starsigns.find(starsign => starsign.id === this.props.user.starsign_id)
-    //     this.setState({usersStarsign})
-    // }
-
+   
     handleGetHoroscope = (user) => {
         API.getHoroscope(user)
         .then(todaysHoroscope => this.setState({todaysHoroscope}))
     }
-    // require(`../public/imgs/${this.state.starsignName}.png`)
+
     render(){
         // debugger
     return (

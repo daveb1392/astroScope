@@ -5,12 +5,17 @@ import API from './adapters/API.js'
 import IndexPage from './IndexPage.js';
 import SignupForm from './SignupForm.js';
 import Login from './Login.js'
+import StarSignShowPage from './StarSignShowPage.js';
 import { Route, withRouter } from "react-router-dom";
+
+const starsignsURL = "http://localhost:3000/starsigns"
 
 class App extends React.Component {
 
   state = {
-    user: null
+    user: null,
+    starsigns: [],
+    usersStarSign: null
   }
   
   componentDidMount() {
@@ -18,7 +23,20 @@ class App extends React.Component {
     .then(user => {
       this.setState({user})
     })
+
+    fetch(starsignsURL)
+    .then(resp => resp.json())
+    .then(starsigns => this.setState({starsigns}))
+    .then(() => this.findStarsignOfCurrentUser(this.state.starsigns))
+
   }
+
+  findStarsignOfCurrentUser = (starsigns) => {
+    if (!this.props.user) return
+   // debugger
+   const usersStarSign = starsigns.find(starsign => starsign.id === this.props.user.starsign_id)
+   this.setState({usersStarSign: usersStarSign})
+}
 
   signUp = user => {
     API.signUp(user)
@@ -45,9 +63,10 @@ class App extends React.Component {
         
         <Navbar user={this.state.user} logOut={this.logOut} />
 
-        <Route exact path='/' component={() => <IndexPage user={this.state.user} />} />
-      <Route path="/login" component={(props) => <Login {...props} handleSubmit={this.logIn} />}/>
-        <Route path="/signup" component={(props) => <SignupForm {...props} handleSubmit={this.signUp} />}/>
+        <Route exact path='/' component={() => <IndexPage user={this.state.user} starsigns={this.state.starsigns} usersStarSign={this.state.usersStarSign} />} />
+        <Route path="/login" component={(props) => <Login {...props} handleSubmit={this.logIn} />}/>
+        <Route path="/signup" component={(props) => <SignupForm {...props} handleSubmit={this.signUp} />}/> 
+        <Route path={["/:starsign"]} component={(props) => <StarSignShowPage {...props} starsigns={this.state.starsigns} />}/> 
         
       </div>
   );

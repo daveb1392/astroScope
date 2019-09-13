@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Image } from 'semantic-ui-react'
-import { getDefaultWatermarks } from 'istanbul-lib-report';
+import { Card, Image, Button } from 'semantic-ui-react'
 import API from './adapters/API.js'
+import { NavLink, Link } from "react-router-dom";
 
 
 class StarSign extends Component {
@@ -18,27 +18,15 @@ class StarSign extends Component {
     }
 
 
-    
-    // handleGetStarSignHoroscope = (starsign) => {
-    //     API.getStarSignHoroscope(starsign)
-    //     .then(todaysStarSignHoroscope => this.setState({todaysStarSignHoroscope}))
-    // }
-
-
-    // <Button onClick={() => this.handleGetHoroscope(this.props.user)} animated='fade'>
-    //                 <Button.Content visible>Today's horoscope</Button.Content>
-    //                 <Button.Content hidden>Find out here</Button.Content>
-    //             </Button>
-
     render() {
-
+        const starSignName = this.props.starsign.name
         let start_date = new Date(this.props.starsign.date_start);
         let end_date = new Date(this.props.starsign.date_end);
        
         let f_start_date = (start_date.getDate() + "/" + (start_date.getMonth()+1) )
         let f_end_date = end_date.getDate() + "/" + (end_date.getMonth()+1);
         // let f_start_date = 
-
+// debugger
         return(
           <Card color="violet" onClick={() => this.handleClick(this.props.starsign)}>
             {this.state.clicked ? (
@@ -67,6 +55,11 @@ class StarSign extends Component {
                   <Card.Description>
                     {this.state.todaysStarSignHoroscope ? this.state.todaysStarSignHoroscope.content : null}
                   </Card.Description>
+
+                  <br/>
+                  <br/>
+
+                  <Button as={Link} to={`/${starSignName}`} >More info</Button>
                 </Card.Content>
               </>
             )}

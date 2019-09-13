@@ -40,46 +40,11 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
                     </NavLink>
                   </Button.Content>
                 </Button>
-{/* 
-                <List floated="left" horizontal>
-                  <List.Item>
-                    <NavLink to="/signup" exact>
-                      Sign up
-                    </NavLink>
-                  </List.Item>
-                  <List.Item>
-                    <NavLink to="/login" exact>
-                      Login
-                    </NavLink>
-                  </List.Item>
-                </List> */}
-
-                {/* <List centered horizontal>
-                  <List.Item>
-                    <NavLink to="/" exact>
-                      <h1>Daily AstroScopes</h1>
-                    </NavLink>
-                  </List.Item>
-                </List> */}
-              {/* <Route exact path="/signup" component={(props) => <SignupForm {...props} handleSubmit={signUp} />} />
-              <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} /> */}
               </>
             )}
              
             <br />
-            {/* <List floated='right' horizontal>
-            <List.Item><NavLink
-                to="/logout"
-                exact
-                >Log out</NavLink>
-            </List.Item>
-            </List> */}
-
-            {/* <Route exact path="/signup" component={(props) => <SignupForm {...props} handleSubmit={signUp} />} />
-            <Route exact path="/login" component={(props) => <Login {...props} handleSubmit={logIn} />} /> */}
-
-            <br />
-            {/* <IndexPage user={user}/> */}
+        
           </nav>
         );
 
