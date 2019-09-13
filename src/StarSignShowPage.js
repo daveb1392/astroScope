@@ -25,7 +25,7 @@ class StarSignShowPage extends React.Component {
         return (
             <div>
                 <br/>
-                 <Card color='violet' centered fluid>
+                 <Card color='blue' centered fluid>
                     <Card.Content>
                     <Image
                         centered horizontal

@@ -28,7 +28,7 @@ class StarSign extends Component {
         // let f_start_date = 
 // debugger
         return(
-          <Card color="violet" onClick={() => this.handleClick(this.props.starsign)}>
+          <Card color="blue" onClick={() => this.handleClick(this.props.starsign)}>
             {this.state.clicked ? (
               <>
                 <Card.Content>
