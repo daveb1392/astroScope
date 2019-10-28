@@ -1,4 +1,4 @@
-#Astroscope 
+# Astroscope 
 
 A daily Horoscope React app. 
 It allows you to view your personal horoscope, aswell as all the others. 
