@@ -1,4 +1,6 @@
-Astroscope is a daily Horoscope React app. 
+#Astroscope 
+
+A daily Horoscope React app. 
 It allows you to view your personal horoscope, aswell as all the others. 
 When signing up it will ask you for a dob, based on so find your horoscope sign. 
 
