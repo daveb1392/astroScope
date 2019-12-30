@@ -8,11 +8,12 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
     
         return (
           <nav>
+            <br/>
               <Header centered horizontal>
                 <NavLink to="/" exact>
-                <h1>Daily AstroScopes</h1>
+                <h1 className="title" >Daily AstroScopes</h1>
                 </NavLink>
-              </Header>
+              </Header> 
 
             { user && !user.error ? (
               <div>
@@ -40,6 +41,7 @@ const Navbar = ({user, signUp, logIn, logOut}) => {
                     </NavLink>
                   </Button.Content>
                 </Button>
+                <br/>
               </>
             )}
              

@@ -60,6 +60,8 @@ class App extends React.Component {
     render() {
       return (
       <div className="App">
+
+        
         
         <Navbar user={this.state.user} logOut={this.logOut} />
 
